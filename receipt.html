@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            font-size: 14px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 1px dashed #000;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .total-section {
+            border-top: 1px dashed #000;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        @media print {
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 style="margin: 0;">AROMA CAFE</h2>
+        <p style="margin: 5px 0;">123 Coffee Street, Bean City</p>
+        <p id="date"></p>
+    </div>
+
+    <div id="items-list">
+        <!-- Items will be injected here -->
+    </div>
+
+    <div class="total-section">
+        <div class="item">
+            <span>Subtotal:</span>
+            <span id="subtotal"></span>
+        </div>
+        <div class="item">
+            <span>Tax (8%):</span>
+            <span id="tax"></span>
+        </div>
+        <div class="item" style="font-weight: bold; font-size: 16px; margin-top: 5px;">
+            <span>TOTAL:</span>
+            <span id="total"></span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Thank you for visiting Aroma Cafe!</p>
+        <p>Please come again ☕</p>
+    </div>
+
+    <div class="no-print" style="margin-top: 20px; text-align: center;">
+        <button onclick="window.print()">Print Receipt</button>
+        <button onclick="window.close()">Close</button>
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+        
+        ipcRenderer.on('receipt-data', (event, data) => {
+            document.getElementById('date').innerText = new Date().toLocaleString();
+            
+            const itemsList = document.getElementById('items-list');
+            itemsList.innerHTML = data.items.map(item => `
+                <div class="item">
+                    <span>${item.name} x ${item.quantity}</span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('subtotal').innerText = `$${data.subtotal.toFixed(2)}`;
+            document.getElementById('tax').innerText = `$${data.tax.toFixed(2)}`;
+            document.getElementById('total').innerText = `$${data.total.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
