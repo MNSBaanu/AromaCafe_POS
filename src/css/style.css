@@ -1,0 +1,222 @@
+/* ── Custom Properties ─────────────────────────────────────────── */
+:root {
+  --maroon:        #4A0010;
+  --maroon-hover:  #6B0016;
+  --maroon-light:  #7B1C2E;
+  --amber:         #D97706;
+  --amber-light:   #FEF3C7;
+  --surface:       #FFFFFF;
+  --bg:            #FAFAF8;
+  --border:        #E7E5E0;
+  --text:          #1C1917;
+  --text-muted:    #78716C;
+  --success:       #16A34A;
+  --danger:        #DC2626;
+}
+
+/* ── Reset / Base ──────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); height: 100vh; overflow: hidden; }
+
+/* ── App Shell ─────────────────────────────────────────────────── */
+.app-shell { display: flex; height: 100vh; }
+
+/* ── Sidebar ───────────────────────────────────────────────────── */
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  background: var(--maroon);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sidebar-logo {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--maroon-light);
+}
+
+.sidebar-logo .logo-icon { font-size: 2rem; }
+.sidebar-logo .logo-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 0.5px;
+}
+.sidebar-logo .logo-sub {
+  font-size: 0.7rem;
+  color: #C4A882;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sidebar-nav { flex: 1; padding: 12px 0; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #C4A882;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background: var(--maroon-hover);
+  color: #fff;
+  border-left-color: var(--amber);
+}
+
+.nav-item.active {
+  background: var(--maroon-hover);
+  color: #fff;
+  border-left-color: var(--amber);
+}
+
+.nav-item .nav-icon { font-size: 1.1rem; width: 22px; text-align: center; }
+.nav-item .nav-label { font-size: 0.875rem; }
+
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--maroon-light);
+  color: #C4A882;
+  font-size: 0.75rem;
+}
+.sidebar-footer .clock { font-size: 1.1rem; font-weight: 700; font-family: monospace; color: #fff; }
+.sidebar-footer .date-str { font-size: 0.7rem; margin-top: 2px; }
+
+/* ── Main Content ──────────────────────────────────────────────── */
+.main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.page-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-title { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+.page-body { flex: 1; overflow-y: auto; padding: 24px; }
+
+/* ── Cards ─────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--maroon), #7B1C2E);
+  color: #fff;
+}
+.btn-primary:hover { background: linear-gradient(135deg, var(--maroon-hover), #9B2040); }
+
+.btn-amber {
+  background: linear-gradient(135deg, var(--amber), #B45309);
+  color: #fff;
+}
+.btn-amber:hover { filter: brightness(1.1); }
+
+.btn-success { background: var(--success); color: #fff; }
+.btn-success:hover { filter: brightness(1.1); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: var(--bg); color: var(--text); }
+
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { filter: brightness(1.1); }
+
+/* ── Inputs ────────────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.875rem;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.input:focus { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(217,119,6,0.1); }
+
+/* ── Badge ─────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--amber);
+  color: #fff;
+}
+
+/* ── Modal ─────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 32px;
+  width: 440px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  border-top: 4px solid var(--maroon);
+  transform: translateY(10px);
+  transition: transform 0.2s;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #C4B5A5; }
+
+/* ── Utility ───────────────────────────────────────────────────── */
+.text-muted { color: var(--text-muted); }
+.text-amber { color: var(--amber); }
+.text-maroon { color: var(--maroon); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.font-mono { font-family: monospace; }

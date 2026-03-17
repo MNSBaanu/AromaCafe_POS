@@ -15,7 +15,8 @@ contextBridge.exposeInMainWorld('api', {
   saveSettings:    (s)      => ipcRenderer.invoke('save-settings', s),
 
   // Receipt
-  printReceipt:    (data)   => ipcRenderer.send('print-receipt', data),
+  printReceipt:      (data) => ipcRenderer.send('print-receipt', data),
+  onReceiptData: (callback) => ipcRenderer.on('receipt-data', (_, data) => callback(data)),
 
   // Navigation
   navigate:        (page)   => ipcRenderer.send('navigate', page),
