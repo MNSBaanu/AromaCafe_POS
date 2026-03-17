@@ -62,70 +62,116 @@ export default function POS() {
   if (receipt) return <Receipt receipt={receipt} onClose={() => setReceipt(null)} />
 
   return (
-    <div className="flex flex-col h-screen bg-cafe-50">
+    <div className="flex flex-col h-screen bg-gray-50">
       {/* Top bar */}
-      <header className="bg-white border-b border-cafe-100 px-6 h-16 flex items-center gap-4 shrink-0">
-        <div>
-          <h1 className="font-bold text-cafe-800 text-lg leading-none">Aroma Cafe</h1>
-          <p className="text-xs text-cafe-400 mt-0.5">Point of Sale</p>
-        </div>
-
+      <header className="bg-white border-b border-gray-100 px-6 h-14 flex items-center gap-4 shrink-0">
         {/* Search */}
-        <div className="relative flex-1 max-w-sm ml-6">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-cafe-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <div className="relative w-64">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
           </svg>
           <input
             type="text"
-            placeholder="Search menu items..."
+            placeholder="Search (Ctrl+/)"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full bg-cafe-50 border border-cafe-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-cafe-800 placeholder-cafe-300 focus:outline-none focus:ring-2 focus:ring-cafe-300 focus:border-transparent transition"
+            className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-8 pr-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d4849a] focus:border-transparent"
           />
         </div>
 
         <div className="ml-auto flex items-center gap-3">
-          <button onClick={load} title="Refresh" className="w-9 h-9 rounded-xl bg-cafe-50 border border-cafe-200 hover:bg-cafe-100 flex items-center justify-center transition-colors">
-            <svg className="w-4 h-4 text-cafe-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <button onClick={load} className="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-colors">
+            <svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
             </svg>
           </button>
-          <div className="text-right">
-            <p className="text-xs font-semibold text-cafe-700">{new Date().toLocaleDateString('en-US',{weekday:'long'})}</p>
-            <p className="text-xs text-cafe-400">{new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</p>
+          <div className="w-8 h-8 rounded-full bg-[#fdf0f2] flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="#9b2335" strokeWidth={2}>
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
           </div>
         </div>
       </header>
 
+      {/* Page title bar */}
+      <div className="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between shrink-0">
+        <div>
+          <h1 className="font-bold text-gray-800 text-base">Point of Sale (POS)</h1>
+          <p className="text-xs text-gray-400 mt-0.5">
+            <span className="text-gray-500">Dashboard</span>
+            <span className="mx-1.5 text-gray-300">•</span>
+            <span className="text-[#9b2335]">Pos</span>
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <button className="flex items-center gap-1.5 bg-[#9b2335] hover:bg-[#7d1c2b] text-white text-xs font-semibold px-3 py-2 rounded-lg transition-colors">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path d="M12 5v14M5 12h14"/></svg>
+            New
+          </button>
+          <button className="flex items-center gap-1.5 border border-gray-200 text-gray-600 text-xs font-medium px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            QR Menu Orders
+          </button>
+          <button className="flex items-center gap-1.5 border border-gray-200 text-gray-600 text-xs font-medium px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+            Draft List
+          </button>
+          <button className="flex items-center gap-1.5 border border-gray-200 text-gray-600 text-xs font-medium px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            Table Order
+          </button>
+        </div>
+      </div>
+
       {/* Body */}
-      <div className="flex flex-1 overflow-hidden p-4 gap-4">
-        {/* Product panel */}
-        <div className="flex flex-col flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden gap-0">
+        {/* Left: products */}
+        <div className="flex flex-col flex-1 overflow-hidden p-4 gap-3">
+          {/* Filters row */}
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="relative flex-1 max-w-xs">
+              <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+              </svg>
+              <input
+                type="text"
+                placeholder="Search in products"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                className="w-full bg-white border border-gray-200 rounded-lg pl-8 pr-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d4849a] focus:border-transparent"
+              />
+            </div>
+            <select className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-[#d4849a] appearance-none pr-8 cursor-pointer">
+              <option>All Category</option>
+              {categories.filter(c => c !== 'All').map(c => <option key={c}>{c}</option>)}
+            </select>
+          </div>
+
           {/* Category pills */}
-          <div className="flex gap-2 mb-4 overflow-x-auto pb-1 shrink-0">
+          <div className="flex items-center gap-2 shrink-0 overflow-x-auto pb-0.5">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all border ${
+                className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                   activeCategory === cat
-                    ? 'bg-cafe-700 text-white border-cafe-700 shadow-sm'
-                    : 'bg-white text-cafe-600 border-cafe-200 hover:border-cafe-400 hover:text-cafe-800'
+                    ? 'bg-[#9b2335] text-white shadow-sm'
+                    : 'bg-white text-gray-600 border border-gray-200 hover:border-[#d4849a] hover:text-[#9b2335]'
                 }`}
               >
-                {cat}
+                {cat === 'All' ? 'Show All' : cat}
               </button>
             ))}
           </div>
 
-          {/* Grid */}
+          {/* Product grid */}
           <div className="flex-1 overflow-auto">
             <ProductGrid products={filtered} onAdd={addToCart} />
           </div>
         </div>
 
-        {/* Cart panel */}
-        <div className="w-[310px] shrink-0 bg-white rounded-2xl border border-cafe-100 shadow-sm flex flex-col overflow-hidden">
+        {/* Right: order panel */}
+        <div className="w-[320px] shrink-0 bg-white border-l border-gray-100 flex flex-col overflow-hidden">
           <Cart cart={cart} onUpdateQty={updateQty} onRemove={removeFromCart} onCheckout={checkout} />
         </div>
       </div>
