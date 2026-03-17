@@ -1,24 +1,15 @@
 {
-  "name": "aromacafe_pos",
+  "name": "aroma-cafe-pos",
   "version": "1.0.0",
-  "description": "A modern, lightweight Point of Sale (POS) system built with **Electron** and **Tailwind CSS**. Designed for simplicity and efficiency in a cafe environment.",
-  "main": "index.js",
+  "description": "Aroma Cafe Point of Sale System",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MNSBaanu/AromaCafe_POS.git"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": ["pos", "electron", "cafe"],
+  "author": "Aroma Cafe",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/MNSBaanu/AromaCafe_POS/issues"
-  },
-  "homepage": "https://github.com/MNSBaanu/AromaCafe_POS#readme",
   "devDependencies": {
-    "electron": "^41.0.2"
+    "electron": "^28.2.0"
   }
 }

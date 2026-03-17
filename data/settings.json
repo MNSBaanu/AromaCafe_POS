@@ -1,0 +1,8 @@
+{
+  "businessName": "Aroma Cafe",
+  "address": "123 Coffee Street, Bean City",
+  "phone": "+1 (555) 000-0000",
+  "taxRate": 8,
+  "currency": "$",
+  "receiptFooter": "Thank you for visiting Aroma Cafe!"
+}
