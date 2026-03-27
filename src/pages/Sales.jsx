@@ -131,8 +131,8 @@ export default function Sales() {
                         </tr>
                       </thead>
                       <tbody>
-                        {sale.items.map(item => (
-                          <tr key={item.id} className="border-t border-gray-100">
+                        {sale.items.map((item, idx) => (
+                          <tr key={item.id} className={`border-t border-gray-100 ${idx % 2 === 0 ? '' : 'bg-white/60'}`}>
                             <td className="py-2 text-gray-700 font-medium">{item.product_name}</td>
                             <td className="py-2 text-right text-gray-500">{item.quantity}</td>
                             <td className="py-2 text-right text-gray-500">${item.price.toFixed(2)}</td>

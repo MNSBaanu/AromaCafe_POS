@@ -70,7 +70,7 @@ export default function ProductGrid({ products, onAdd }) {
 
               {!outOfStock && (
                 <div className="absolute inset-0 bg-[#059669]/0 group-hover:bg-[#059669]/5 transition-colors duration-200 flex items-end justify-end p-2">
-                  <div className="w-7 h-7 rounded-full bg-[#059669] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md text-lg font-bold leading-none translate-y-1 group-hover:translate-y-0">
+                  <div className="w-7 h-7 bg-[#059669] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md text-lg font-bold leading-none translate-y-1 group-hover:translate-y-0">
                     +
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export default function ProductGrid({ products, onAdd }) {
               <p className="text-sm font-semibold text-gray-800 truncate leading-snug">{p.name}</p>
               <div className="flex items-center justify-between mt-1">
                 <p className="text-base font-bold text-[#059669]">${p.price.toFixed(2)}</p>
-                <span className="text-xs text-gray-400 font-medium">{p.category}</span>
+                <span className="text-xs text-gray-400 font-medium">{p.stock > 0 ? `${p.stock} left` : p.category}</span>
               </div>
             </div>
           </button>

@@ -97,8 +97,8 @@ export default function Products() {
           </div>
 
           <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-100 bg-gray-50/70">
+            <thead className="sticky top-0 z-10">
+              <tr className="border-b border-gray-100 bg-gray-50">
                 {['#', 'Item Name', 'Category', 'Price', 'Stock', 'Actions'].map(h => (
                   <th key={h} className="px-5 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{h}</th>
                 ))}
@@ -106,7 +106,7 @@ export default function Products() {
             </thead>
             <tbody>
               {filtered.map((p, idx) => (
-                <tr key={p.id} className="border-b border-gray-50 hover:bg-slate-50/80 transition-colors last:border-0 group">
+                <tr key={p.id} className={`border-b border-gray-50 hover:bg-emerald-50/40 transition-colors last:border-0 group ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
                   <td className="px-5 py-3.5 text-sm text-gray-400 font-medium">{idx + 1}</td>
                   <td className="px-5 py-3.5">
                     <p className="font-semibold text-gray-800 text-sm">{p.name}</p>

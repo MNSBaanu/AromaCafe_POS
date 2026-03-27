@@ -1,13 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root { height: 100%; font-family: 'Inter', sans-serif; font-size: 112.5%; }
+html, body, #root { height: 100%; font-family: 'DM Sans', sans-serif; font-size: 112.5%; }
 
-::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #d1fae5; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #a7f3d0; }
+::-webkit-scrollbar-thumb { background: #6ee7b7; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #34d399; }
 
 * { -webkit-font-smoothing: antialiased; }
+
+/* Toast animations */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.toast-enter { animation: slideIn 0.2s ease forwards; }
+.toast-exit  { animation: fadeOut 0.25s ease forwards; }
+
+/* Button press feedback */
+.btn-press:active { transform: scale(0.97); }
+
+/* Page fade transition */
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: pageFade 0.15s ease forwards; }

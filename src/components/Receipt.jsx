@@ -14,7 +14,7 @@ export default function Receipt({ receipt, onClose }) {
           </div>
           <h2 className="font-bold text-gray-900 text-xl">Payment Successful</h2>
           <p className="text-gray-400 text-sm mt-1">{receipt.date}</p>
-          <span className="inline-block mt-2 px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-500">
+          <span className="inline-block mt-2 px-3 py-1 bg-gray-100 text-xs font-semibold text-gray-500">
             Order #{receipt.id}
           </span>
         </div>
@@ -25,7 +25,7 @@ export default function Receipt({ receipt, onClose }) {
           {receipt.items.map(item => (
             <div key={item.id} className="flex justify-between text-sm">
               <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-md bg-[#fdf0f2] text-[#9b2335] text-[10px] font-bold flex items-center justify-center shrink-0">{item.quantity}</span>
+                <span className="w-5 h-5 rounded-md bg-[#ecfdf5] text-[#059669] text-[10px] font-bold flex items-center justify-center shrink-0">{item.quantity}</span>
                 <span className="text-gray-700">{item.name}</span>
               </div>
               <span className="font-semibold text-gray-800">${(item.price * item.quantity).toFixed(2)}</span>
@@ -56,7 +56,7 @@ export default function Receipt({ receipt, onClose }) {
           </button>
           <button
             onClick={onClose}
-            className="flex-[2] bg-[#9b2335] hover:bg-[#7d1c2b] text-white py-2.5 rounded-xl font-bold text-sm transition-colors shadow-sm"
+            className="flex-[2] bg-[#059669] hover:bg-[#047857] text-white py-2.5 rounded-xl font-bold text-sm transition-colors shadow-sm"
           >
             New Order
           </button>
