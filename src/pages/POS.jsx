@@ -66,37 +66,37 @@ export default function POS() {
       {/* Top bar */}
       <header className="bg-white border-b border-gray-100 px-6 h-14 flex items-center gap-4 shrink-0">
         <div>
-          <h1 className="font-bold text-gray-900 text-sm">Point of Sale</h1>
-          <p className="text-[11px] text-gray-400 leading-none mt-0.5">
+          <h1 className="font-bold text-gray-900 text-base">Point of Sale</h1>
+          <p className="text-xs text-gray-400 leading-none mt-0.5">
             <span className="text-gray-500">Dashboard</span>
             <span className="mx-1 text-gray-300">/</span>
-            <span className="text-[#9b2335] font-medium">POS</span>
+            <span className="text-[#059669] font-medium">POS</span>
           </p>
         </div>
 
         <div className="ml-auto flex items-center gap-2">
           <button
             onClick={load}
-            className="h-8 px-3 rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 hover:text-gray-700 flex items-center gap-1.5 text-xs font-medium transition-all"
+            className="h-8 px-3 rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 hover:text-gray-700 flex items-center gap-1.5 text-sm font-medium transition-all"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
             </svg>
             Refresh
           </button>
-          <button className="h-8 px-3 rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 flex items-center gap-1.5 text-xs font-medium transition-all">
+          <button className="h-8 px-3 rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 flex items-center gap-1.5 text-sm font-medium transition-all">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
             </svg>
             QR Orders
           </button>
-          <button className="h-8 px-3 rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 flex items-center gap-1.5 text-xs font-medium transition-all">
+          <button className="h-8 px-3 rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 flex items-center gap-1.5 text-sm font-medium transition-all">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/>
             </svg>
             Drafts
           </button>
-          <button className="h-8 px-3 rounded-lg bg-[#9b2335] hover:bg-[#7d1c2b] text-white flex items-center gap-1.5 text-xs font-semibold transition-all shadow-sm">
+          <button className="h-8 px-3 rounded-lg bg-[#059669] hover:bg-[#047857] text-white flex items-center gap-1.5 text-sm font-semibold transition-all shadow-sm">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path d="M12 5v14M5 12h14"/></svg>
             New Order
           </button>
@@ -118,14 +118,14 @@ export default function POS() {
                 placeholder="Search products..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full bg-white border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9b2335]/20 focus:border-[#9b2335]/40 transition-all"
+                className="w-full bg-white border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#059669]/20 focus:border-[#059669]/40 transition-all"
               />
             </div>
-            <select className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-[#9b2335]/20 appearance-none pr-8 cursor-pointer">
+            <select className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-[#059669]/20 appearance-none pr-8 cursor-pointer">
               <option>All Categories</option>
               {categories.filter(c => c !== 'All').map(c => <option key={c}>{c}</option>)}
             </select>
-            <div className="ml-auto text-xs text-gray-400 font-medium shrink-0">
+            <div className="ml-auto text-sm text-gray-400 font-medium shrink-0">
               {filtered.length} items
             </div>
           </div>
@@ -136,10 +136,10 @@ export default function POS() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-150 ${
+                className={`px-3.5 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all duration-150 ${
                   activeCategory === cat
-                    ? 'bg-[#9b2335] text-white shadow-sm'
-                    : 'bg-white text-gray-500 border border-gray-200 hover:border-[#9b2335]/30 hover:text-[#9b2335]'
+                ? 'bg-[#059669] text-white shadow-sm'
+                    : 'bg-white text-gray-500 border border-gray-200 hover:border-[#059669]/30 hover:text-[#059669]'
                 }`}
               >
                 {cat === 'All' ? 'All Items' : cat}

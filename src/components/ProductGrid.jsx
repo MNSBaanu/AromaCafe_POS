@@ -60,7 +60,7 @@ export default function ProductGrid({ products, onAdd }) {
             className={`group relative bg-white rounded-xl border overflow-hidden text-left transition-all duration-200 ${
               outOfStock
                 ? 'opacity-50 cursor-not-allowed border-gray-100'
-                : `hover:shadow-md hover:-translate-y-0.5 cursor-pointer border-gray-100 hover:border-[#9b2335]/25`
+                : `hover:shadow-md hover:-translate-y-0.5 cursor-pointer border-gray-100 hover:border-[#059669]/25`
             }`}
             style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}
           >
@@ -69,8 +69,8 @@ export default function ProductGrid({ products, onAdd }) {
               <span className="text-4xl">{style.icon}</span>
 
               {!outOfStock && (
-                <div className="absolute inset-0 bg-[#9b2335]/0 group-hover:bg-[#9b2335]/5 transition-colors duration-200 flex items-end justify-end p-2">
-                  <div className="w-7 h-7 rounded-full bg-[#9b2335] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md text-lg font-bold leading-none translate-y-1 group-hover:translate-y-0">
+                <div className="absolute inset-0 bg-[#059669]/0 group-hover:bg-[#059669]/5 transition-colors duration-200 flex items-end justify-end p-2">
+                  <div className="w-7 h-7 rounded-full bg-[#059669] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md text-lg font-bold leading-none translate-y-1 group-hover:translate-y-0">
                     +
                   </div>
                 </div>
@@ -87,10 +87,10 @@ export default function ProductGrid({ products, onAdd }) {
 
             {/* Info */}
             <div className="px-3 py-2.5">
-              <p className="text-xs font-semibold text-gray-800 truncate leading-snug">{p.name}</p>
+              <p className="text-sm font-semibold text-gray-800 truncate leading-snug">{p.name}</p>
               <div className="flex items-center justify-between mt-1">
-                <p className="text-sm font-bold text-[#9b2335]">${p.price.toFixed(2)}</p>
-                <span className="text-[10px] text-gray-400 font-medium">{p.category}</span>
+                <p className="text-base font-bold text-[#059669]">${p.price.toFixed(2)}</p>
+                <span className="text-xs text-gray-400 font-medium">{p.category}</span>
               </div>
             </div>
           </button>

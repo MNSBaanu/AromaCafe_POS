@@ -42,7 +42,7 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
       <div className="px-4 pt-4 pb-3 border-b border-gray-100 shrink-0">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[#9b2335] flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-[#059669] flex items-center justify-center">
               <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
                 <line x1="3" y1="6" x2="21" y2="6"/>
@@ -50,14 +50,14 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
               </svg>
             </div>
             <div>
-              <p className="text-sm font-bold text-gray-900">Order #{orderNum}</p>
-              <p className="text-[10px] text-gray-400">{itemCount} item{itemCount !== 1 ? 's' : ''}</p>
+              <p className="text-base font-bold text-gray-900">Order #{orderNum}</p>
+              <p className="text-xs text-gray-400">{itemCount} item{itemCount !== 1 ? 's' : ''}</p>
             </div>
           </div>
           {cart.length > 0 && (
             <button
               onClick={clearCart}
-              className="text-[11px] font-medium text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1"
+              className="text-xs font-medium text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1"
             >
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
@@ -67,12 +67,12 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
           )}
         </div>
         <div className="flex gap-2">
-          <select className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-xs text-gray-600 bg-gray-50 focus:outline-none appearance-none cursor-pointer">
+          <select className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-600 bg-gray-50 focus:outline-none appearance-none cursor-pointer">
             <option>Dine In</option>
             <option>Take Away</option>
             <option>Delivery</option>
           </select>
-          <select className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-xs text-gray-600 bg-gray-50 focus:outline-none appearance-none cursor-pointer">
+          <select className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-600 bg-gray-50 focus:outline-none appearance-none cursor-pointer">
             <option>Table 1</option>
             <option>Table 2</option>
             <option>Table 3</option>
@@ -97,12 +97,12 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
         {cart.map((item, idx) => (
           <div key={item.id} className="bg-white rounded-xl border border-gray-100 p-3" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
             <div className="flex items-start gap-2">
-              <div className="w-6 h-6 rounded-md bg-[#fdf0f2] flex items-center justify-center shrink-0 mt-0.5">
-                <span className="text-[10px] font-bold text-[#9b2335]">{idx + 1}</span>
+              <div className="w-6 h-6 rounded-md bg-[#ecfdf5] flex items-center justify-center shrink-0 mt-0.5">
+                <span className="text-xs font-bold text-[#059669]">{idx + 1}</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold text-gray-800 truncate">{item.name}</p>
-                <p className="text-[11px] text-gray-400 mt-0.5">${item.price.toFixed(2)} each</p>
+                <p className="text-sm font-semibold text-gray-800 truncate">{item.name}</p>
+                <p className="text-xs text-gray-400 mt-0.5">${item.price.toFixed(2)} each</p>
               </div>
               <button
                 onClick={() => onRemove(item.id)}
@@ -119,13 +119,13 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
                   onClick={() => onUpdateQty(item.id, item.quantity - 1)}
                   className="w-6 h-6 rounded-md border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 font-bold text-sm flex items-center justify-center transition-colors"
                 >−</button>
-                <span className="text-xs font-bold text-gray-800 w-5 text-center">{item.quantity}</span>
+                <span className="text-sm font-bold text-gray-800 w-5 text-center">{item.quantity}</span>
                 <button
                   onClick={() => onUpdateQty(item.id, item.quantity + 1)}
                   className="w-6 h-6 rounded-md border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 font-bold text-sm flex items-center justify-center transition-colors"
                 >+</button>
               </div>
-              <p className="text-sm font-bold text-[#9b2335]">${(item.price * item.quantity).toFixed(2)}</p>
+              <p className="text-base font-bold text-[#059669]">${(item.price * item.quantity).toFixed(2)}</p>
             </div>
           </div>
         ))}
@@ -134,21 +134,21 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
       {/* Footer */}
       <div className="shrink-0 border-t border-gray-100 bg-white">
         <div className="px-4 pt-3 pb-2 space-y-1.5">
-          <div className="flex justify-between text-xs text-gray-500">
+          <div className="flex justify-between text-sm text-gray-500">
             <span>Subtotal</span>
             <span className="font-medium text-gray-700">${subtotal.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between text-xs text-gray-500">
+          <div className="flex justify-between text-sm text-gray-500">
             <span>Tax (5%)</span>
             <span className="font-medium text-gray-700">${tax.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between text-xs text-gray-500">
+          <div className="flex justify-between text-sm text-gray-500">
             <span>Discount</span>
             <span className="font-medium text-green-600">— $0.00</span>
           </div>
-          <div className="flex justify-between font-bold text-gray-900 text-sm pt-2 border-t border-gray-100 mt-1">
+          <div className="flex justify-between font-bold text-gray-900 text-base pt-2 border-t border-gray-100 mt-1">
             <span>Total</span>
-            <span className="text-[#9b2335]">${total.toFixed(2)}</span>
+            <span className="font-bold text-[#059669]">${total.toFixed(2)}</span>
           </div>
         </div>
 
@@ -163,10 +163,10 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
                 <button
                   key={m.id}
                   onClick={() => setPayMethod(m.id)}
-                  className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg border text-[10px] font-semibold transition-all ${
+                  className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg border text-xs font-semibold transition-all ${
                     payMethod === m.id
-                      ? 'bg-[#9b2335] border-[#9b2335] text-white'
-                      : 'border-gray-200 text-gray-500 hover:border-[#9b2335]/30 hover:text-[#9b2335]'
+                      ? 'bg-[#059669] border-[#059669] text-white'
+                      : 'border-gray-200 text-gray-500 hover:border-[#059669]/30 hover:text-[#059669]'
                   }`}
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>{m.icon}</svg>
@@ -177,7 +177,7 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
 
             {payMethod === 'cash' && (
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Cash Received</label>
+                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Cash Received</label>
                 <input
                   type="number"
                   min="0"
@@ -186,14 +186,14 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
                   onChange={e => { setPaid(e.target.value); setError('') }}
                   placeholder={`Min. $${total.toFixed(2)}`}
                   autoFocus
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#9b2335]/20 focus:border-[#9b2335]/40 bg-gray-50 transition-all"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#059669]/20 focus:border-[#059669]/40 bg-gray-50 transition-all"
                 />
                 <div className="flex gap-1.5">
                   {[Math.ceil(total), Math.ceil(total / 5) * 5 + 5, Math.ceil(total / 10) * 10 + 10].map(amt => (
                     <button
                       key={amt}
                       onClick={() => { setPaid(String(amt)); setError('') }}
-                      className="flex-1 py-1.5 rounded-lg border border-gray-200 text-[10px] font-bold text-gray-600 hover:border-[#9b2335]/30 hover:text-[#9b2335] hover:bg-[#fdf0f2] transition-all"
+                      className="flex-1 py-1.5 rounded-lg border border-gray-200 text-xs font-bold text-gray-600 hover:border-[#059669]/30 hover:text-[#059669] hover:bg-[#ecfdf5] transition-all"
                     >
                       ${amt}
                     </button>
@@ -210,9 +210,9 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
 
             {payMethod !== 'cash' && (
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-3 text-center">
-                <p className="text-xs font-semibold text-gray-600">Amount to charge</p>
-                <p className="text-xl font-bold text-[#9b2335] mt-0.5">${total.toFixed(2)}</p>
-                <p className="text-[10px] text-gray-400 mt-1">{payMethod === 'card' ? 'Tap or insert card' : 'Scan QR code to pay'}</p>
+                <p className="text-sm font-semibold text-gray-600">Amount to charge</p>
+                <p className="text-2xl font-bold text-[#059669] mt-0.5">${total.toFixed(2)}</p>
+                <p className="text-xs text-gray-400 mt-1">{payMethod === 'card' ? 'Tap or insert card' : 'Scan QR code to pay'}</p>
               </div>
             )}
           </div>
@@ -220,7 +220,7 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
 
         {error && (
           <div className="mx-4 mb-2 px-3 py-2 bg-red-50 border border-red-100 rounded-lg">
-            <p className="text-xs text-red-600 font-medium">{error}</p>
+            <p className="text-sm text-red-600 font-medium">{error}</p>
           </div>
         )}
 
@@ -229,13 +229,13 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
             <div className="flex gap-2">
               <button
                 onClick={() => { setShowPayment(false); setError('') }}
-                className="flex-1 py-2.5 rounded-lg border border-gray-200 text-gray-600 text-xs font-semibold hover:bg-gray-50 transition-colors"
+                className="flex-1 py-2.5 rounded-lg border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 transition-colors"
               >
                 ← Back
               </button>
               <button
                 onClick={handleConfirm}
-                className="flex-[2] py-2.5 rounded-lg bg-[#9b2335] hover:bg-[#7d1c2b] text-white text-xs font-bold transition-colors shadow-sm"
+                className="flex-[2] py-2.5 rounded-lg bg-[#059669] hover:bg-[#047857] text-white text-sm font-bold transition-colors shadow-sm"
               >
                 Confirm Payment
               </button>
@@ -245,17 +245,17 @@ export default function Cart({ cart, onUpdateQty, onRemove, onCheckout }) {
               <div className="flex gap-2">
                 <button
                   onClick={() => { if (cart.length > 0) alert('KOT sent to kitchen') }}
-                  className="flex-1 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition-colors"
+                  className="flex-1 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold transition-colors"
                 >
                   KOT &amp; Print
                 </button>
-                <button className="flex-1 py-2.5 rounded-lg border border-gray-200 text-gray-600 text-xs font-semibold hover:bg-gray-50 transition-colors">
+                <button className="flex-1 py-2.5 rounded-lg border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 transition-colors">
                   Save Draft
                 </button>
               </div>
               <button
                 onClick={handleBillPayment}
-                className="w-full py-3 rounded-xl bg-[#9b2335] hover:bg-[#7d1c2b] text-white text-sm font-bold transition-colors shadow-sm flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-xl bg-[#059669] hover:bg-[#047857] text-white text-base font-bold transition-colors shadow-sm flex items-center justify-center gap-2"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>

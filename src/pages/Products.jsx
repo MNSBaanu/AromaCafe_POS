@@ -44,15 +44,15 @@ export default function Products() {
       {/* Top bar */}
       <header className="bg-white border-b border-gray-100 px-6 h-14 flex items-center gap-4 shrink-0">
         <div>
-          <h1 className="font-bold text-gray-900 text-sm">Menu Items</h1>
-          <p className="text-[11px] text-gray-400 leading-none mt-0.5">
+          <h1 className="font-bold text-gray-900 text-base">Menu Items</h1>
+          <p className="text-xs text-gray-400 leading-none mt-0.5">
             <span className="text-gray-500">Dashboard</span>
             <span className="mx-1 text-gray-300">/</span>
-            <span className="text-[#9b2335] font-medium">Menu</span>
+            <span className="text-[#059669] font-medium">Menu</span>
           </p>
         </div>
         <div className="ml-auto flex items-center gap-2">
-          <button onClick={openAdd} className="h-8 px-3 rounded-lg bg-[#9b2335] hover:bg-[#7d1c2b] text-white flex items-center gap-1.5 text-xs font-semibold transition-all shadow-sm">
+          <button onClick={openAdd} className="h-8 px-3 rounded-lg bg-[#059669] hover:bg-[#047857] text-white flex items-center gap-1.5 text-xs font-semibold transition-all shadow-sm">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path d="M12 5v14M5 12h14"/></svg>
             Add Item
           </button>
@@ -63,14 +63,14 @@ export default function Products() {
       <div className="bg-white border-b border-gray-100 px-6 py-3 flex items-center gap-6 shrink-0">
         {[
           { label: 'Total Items', value: products.length, color: 'text-gray-900' },
-          { label: 'Inventory Value', value: `$${totalValue.toFixed(2)}`, color: 'text-[#9b2335]' },
+          { label: 'Inventory Value', value: `$${totalValue.toFixed(2)}`, color: 'text-[#059669]' },
           { label: 'Out of Stock', value: outOfStock, color: outOfStock > 0 ? 'text-red-500' : 'text-gray-900' },
           { label: 'Low Stock', value: lowStock, color: lowStock > 0 ? 'text-amber-500' : 'text-gray-900' },
         ].map(stat => (
           <div key={stat.label} className="flex items-center gap-3">
             <div>
-              <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wide">{stat.label}</p>
-              <p className={`text-base font-bold ${stat.color}`}>{stat.value}</p>
+              <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{stat.label}</p>
+              <p className={`text-lg font-bold ${stat.color}`}>{stat.value}</p>
             </div>
             <div className="w-px h-8 bg-gray-100 last:hidden"/>
           </div>
@@ -90,7 +90,7 @@ export default function Products() {
                 placeholder="Search items..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9b2335]/20 focus:border-[#9b2335]/40 transition-all"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#059669]/20 focus:border-[#059669]/40 transition-all"
               />
             </div>
             <span className="text-xs text-gray-400 ml-auto font-medium">{filtered.length} of {products.length} items</span>
@@ -100,23 +100,23 @@ export default function Products() {
             <thead>
               <tr className="border-b border-gray-100 bg-gray-50/70">
                 {['#', 'Item Name', 'Category', 'Price', 'Stock', 'Actions'].map(h => (
-                  <th key={h} className="px-5 py-3 text-left text-[10px] font-bold text-gray-400 uppercase tracking-wider">{h}</th>
+                  <th key={h} className="px-5 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {filtered.map((p, idx) => (
                 <tr key={p.id} className="border-b border-gray-50 hover:bg-slate-50/80 transition-colors last:border-0 group">
-                  <td className="px-5 py-3.5 text-xs text-gray-400 font-medium">{idx + 1}</td>
+                  <td className="px-5 py-3.5 text-sm text-gray-400 font-medium">{idx + 1}</td>
                   <td className="px-5 py-3.5">
                     <p className="font-semibold text-gray-800 text-sm">{p.name}</p>
                   </td>
                   <td className="px-5 py-3.5">
-                    <span className="px-2.5 py-1 rounded-lg bg-[#fdf0f2] text-[#9b2335] text-xs font-semibold border border-rose-100">{p.category}</span>
+                    <span className="px-2.5 py-1 rounded-lg bg-[#ecfdf5] text-[#059669] text-sm font-semibold border border-emerald-100">{p.category}</span>
                   </td>
-                  <td className="px-5 py-3.5 font-bold text-[#9b2335] text-sm">${p.price.toFixed(2)}</td>
+                  <td className="px-5 py-3.5 font-bold text-[#059669] text-sm">${p.price.toFixed(2)}</td>
                   <td className="px-5 py-3.5">
-                    <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${
+                    <span className={`px-2.5 py-1 rounded-lg text-sm font-semibold ${
                       p.stock > 10 ? 'bg-green-50 text-green-700 border border-green-100'
                       : p.stock > 0 ? 'bg-amber-50 text-amber-700 border border-amber-100'
                       : 'bg-red-50 text-red-600 border border-red-100'
@@ -128,13 +128,13 @@ export default function Products() {
                     <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button
                         onClick={() => openEdit(p)}
-                        className="h-7 px-3 rounded-lg bg-blue-50 text-blue-600 text-xs font-semibold hover:bg-blue-100 transition-colors"
+                        className="h-7 px-3 rounded-lg bg-blue-50 text-blue-600 text-sm font-semibold hover:bg-blue-100 transition-colors"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => remove(p.id)}
-                        className="h-7 px-3 rounded-lg bg-red-50 text-red-500 text-xs font-semibold hover:bg-red-100 transition-colors"
+                        className="h-7 px-3 rounded-lg bg-red-50 text-red-500 text-sm font-semibold hover:bg-red-100 transition-colors"
                       >
                         Delete
                       </button>
@@ -160,8 +160,8 @@ export default function Products() {
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl border border-gray-100 p-6 w-[420px]" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-[#fdf0f2] flex items-center justify-center">
-                <svg className="w-4.5 h-4.5 w-[18px] h-[18px] text-[#9b2335]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-9 h-9 rounded-xl bg-[#ecfdf5] flex items-center justify-center">
+                <svg className="w-4.5 h-4.5 w-[18px] h-[18px] text-[#059669]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   {editing
                     ? <><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></>
                     : <path d="M12 5v14M5 12h14"/>
@@ -187,13 +187,13 @@ export default function Products() {
                 { label: 'Category', key: 'category', type: 'text', placeholder: 'e.g. Coffee, Desserts' },
               ].map(({ label, key, type, placeholder }) => (
                 <div key={key}>
-                  <label className="block text-xs font-bold text-gray-500 mb-1.5 uppercase tracking-wide">{label}</label>
+                  <label className="block text-sm font-bold text-gray-500 mb-1.5 uppercase tracking-wide">{label}</label>
                   <input
                     type={type}
                     value={form[key]}
                     onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
                     placeholder={placeholder}
-                    className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#9b2335]/20 focus:border-[#9b2335]/40 bg-gray-50 transition-all placeholder-gray-300"
+                    className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#059669]/20 focus:border-[#059669]/40 bg-gray-50 transition-all placeholder-gray-300"
                   />
                 </div>
               ))}
@@ -208,7 +208,7 @@ export default function Products() {
               </button>
               <button
                 onClick={save}
-                className="flex-[2] bg-[#9b2335] hover:bg-[#7d1c2b] text-white py-2.5 rounded-xl text-sm font-bold transition-colors shadow-sm"
+                className="flex-[2] bg-[#059669] hover:bg-[#047857] text-white py-2.5 rounded-xl text-sm font-bold transition-colors shadow-sm"
               >
                 {editing ? 'Save Changes' : 'Add Item'}
               </button>

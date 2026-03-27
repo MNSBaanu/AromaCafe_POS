@@ -19,11 +19,11 @@ export default function Sales() {
       {/* Top bar */}
       <header className="bg-white border-b border-gray-100 px-6 h-14 flex items-center gap-4 shrink-0">
         <div>
-          <h1 className="font-bold text-gray-900 text-sm">Sales History</h1>
-          <p className="text-[11px] text-gray-400 leading-none mt-0.5">
+          <h1 className="font-bold text-gray-900 text-base">Sales History</h1>
+          <p className="text-xs text-gray-400 leading-none mt-0.5">
             <span className="text-gray-500">Dashboard</span>
             <span className="mx-1 text-gray-300">/</span>
-            <span className="text-[#9b2335] font-medium">Sales</span>
+            <span className="text-[#059669] font-medium">Sales</span>
           </p>
         </div>
         <div className="ml-auto flex items-center gap-2">
@@ -40,7 +40,7 @@ export default function Sales() {
       <div className="bg-white border-b border-gray-100 px-6 py-3 flex items-center gap-6 shrink-0">
         {[
           { label: 'Total Orders', value: sales.length, icon: <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>, color: 'bg-blue-50 text-blue-500' },
-          { label: 'Total Revenue', value: `$${grandTotal.toFixed(2)}`, icon: <><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></>, color: 'bg-[#fdf0f2] text-[#9b2335]' },
+          { label: 'Total Revenue', value: `$${grandTotal.toFixed(2)}`, icon: <><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></>, color: 'bg-[#ecfdf5] text-[#059669]' },
           { label: 'Avg. Order Value', value: `$${avgOrder.toFixed(2)}`, icon: <><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></>, color: 'bg-green-50 text-green-600' },
         ].map(stat => (
           <div key={stat.label} className="flex items-center gap-3">
@@ -48,8 +48,8 @@ export default function Sales() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>{stat.icon}</svg>
             </div>
             <div>
-              <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wide">{stat.label}</p>
-              <p className="text-base font-bold text-gray-900">{stat.value}</p>
+              <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{stat.label}</p>
+              <p className="text-lg font-bold text-gray-900">{stat.value}</p>
             </div>
             <div className="w-px h-8 bg-gray-100"/>
           </div>
@@ -80,7 +80,7 @@ export default function Sales() {
                 placeholder="Search by order ID or date..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full bg-white border border-gray-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9b2335]/20 focus:border-[#9b2335]/40 transition-all"
+                className="w-full bg-white border border-gray-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#059669]/20 focus:border-[#059669]/40 transition-all"
                 style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}
               />
             </div>
@@ -96,8 +96,8 @@ export default function Sales() {
                   onClick={() => setExpanded(expanded === sale.id ? null : sale.id)}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-[#fdf0f2] border border-rose-100 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 text-[#9b2335]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <div className="w-9 h-9 rounded-xl bg-[#ecfdf5] border border-emerald-100 flex items-center justify-center shrink-0">
+                      <svg className="w-4 h-4 text-[#059669]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
                         <rect x="9" y="3" width="6" height="4" rx="1"/>
                       </svg>
@@ -108,8 +108,8 @@ export default function Sales() {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="px-2.5 py-1 rounded-lg bg-green-50 text-green-700 text-xs font-bold border border-green-100">Paid</span>
-                    <span className="font-bold text-gray-900 text-sm">${sale.total.toFixed(2)}</span>
+                    <span className="px-2.5 py-1 rounded-lg bg-green-50 text-green-700 text-sm font-bold border border-green-100">Paid</span>
+                    <span className="font-bold text-gray-900 text-base">${sale.total.toFixed(2)}</span>
                     <svg
                       className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${expanded === sale.id ? 'rotate-180' : ''}`}
                       fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
@@ -123,7 +123,7 @@ export default function Sales() {
                   <div className="border-t border-gray-100 bg-slate-50/60 px-5 pb-4 pt-3">
                     <table className="w-full text-sm">
                       <thead>
-                        <tr className="text-gray-400 text-[10px] uppercase tracking-wider">
+                        <tr className="text-gray-400 text-xs uppercase tracking-wider">
                           <th className="text-left pb-2 font-bold">Item</th>
                           <th className="text-right pb-2 font-bold">Qty</th>
                           <th className="text-right pb-2 font-bold">Unit Price</th>

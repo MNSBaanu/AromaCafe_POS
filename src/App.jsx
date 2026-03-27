@@ -40,27 +40,27 @@ export default function App() {
       <aside className="w-52 bg-white border-r border-gray-100 flex flex-col shrink-0" style={{ boxShadow: '1px 0 0 0 #f1f5f9' }}>
         {/* Logo */}
         <div className="px-5 py-4 flex items-center gap-3 border-b border-gray-100">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#9b2335] to-[#c0392b] flex items-center justify-center shrink-0 shadow-sm">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#059669] to-[#047857] flex items-center justify-center shrink-0 shadow-sm">
             <svg viewBox="0 0 24 24" fill="white" className="w-4.5 h-4.5 w-[18px] h-[18px]">
               <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
             </svg>
           </div>
           <div>
-            <p className="font-bold text-gray-900 text-sm leading-tight">Aroma Cafe</p>
-            <p className="text-[10px] text-gray-400 font-medium">POS System</p>
+            <p className="font-bold text-gray-900 text-base leading-tight">Aroma Cafe</p>
+            <p className="text-xs text-gray-400 font-medium">POS System</p>
           </div>
         </div>
 
         {/* User */}
-        <div className="px-4 py-3 mx-3 my-3 rounded-xl bg-gradient-to-r from-[#fdf0f2] to-rose-50 border border-rose-100 flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-white border border-rose-200 flex items-center justify-center shrink-0 shadow-sm">
-            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="#9b2335" strokeWidth={2}>
+        <div className="px-4 py-3 mx-3 my-3 rounded-xl bg-gradient-to-r from-[#ecfdf5] to-emerald-50 border border-emerald-100 flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-full bg-white border border-emerald-200 flex items-center justify-center shrink-0 shadow-sm">
+            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="#059669" strokeWidth={2}>
               <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
             </svg>
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-semibold text-gray-800 truncate">Cashier</p>
-            <p className="text-[10px] text-[#9b2335] font-medium truncate">● Online</p>
+            <p className="text-sm font-semibold text-gray-800 truncate">Cashier</p>
+            <p className="text-xs text-[#059669] font-medium truncate">● Online</p>
           </div>
         </div>
 
@@ -69,7 +69,7 @@ export default function App() {
           {NAV.map((group, gi) => (
             <div key={gi}>
               {group.section && (
-                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.12em] px-2 mb-1.5">{group.section}</p>
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.12em] px-2 mb-1.5">{group.section}</p>
               )}
               <div className="space-y-0.5">
                 {group.items.map(item => {
@@ -78,18 +78,18 @@ export default function App() {
                     <button
                       key={item.id}
                       onClick={() => setTab(item.id)}
-                      className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                      className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                         active
-                          ? 'bg-[#9b2335] text-white shadow-sm'
+                          ? 'bg-[#059669] text-white shadow-sm'
                           : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800'
                       }`}
                     >
-                      <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5 shrink-0" stroke="currentColor" strokeWidth={active ? 2.2 : 1.8}>
+                      <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 shrink-0" stroke="currentColor" strokeWidth={active ? 2.2 : 1.8}>
                         {item.icon}
                       </svg>
                       <span className="flex-1 text-left">{item.label}</span>
                       {item.badge && (
-                        <span className="text-[9px] font-bold bg-amber-400 text-white px-1.5 py-0.5 rounded-full leading-none">{item.badge}</span>
+                        <span className="text-[10px] font-bold bg-amber-400 text-white px-1.5 py-0.5 rounded-full leading-none">{item.badge}</span>
                       )}
                     </button>
                   )
@@ -101,7 +101,7 @@ export default function App() {
 
         {/* Bottom */}
         <div className="px-3 py-3 border-t border-gray-100 space-y-0.5">
-          <button className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-gray-400 hover:text-gray-700 hover:bg-gray-50 transition-all">
+          <button className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-700 hover:bg-gray-50 transition-all">
             <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5" stroke="currentColor" strokeWidth={1.8}>
               <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
             </svg>
